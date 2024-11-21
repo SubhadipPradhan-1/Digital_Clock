@@ -1,0 +1,46 @@
+<html>
+    <head><title>
+        Digital clock
+    </title>
+    <style>
+        h1{
+            text-align: center;
+            font-size: 100px;
+            color: blueviolet;
+        }
+    </style>
+    </head>
+    <body onload="ccc()">
+        <h1 id="ct"></h1> 
+
+    </body>
+    <script>
+        function clock(){
+            var d=new Date;
+            var h=d.getHours();
+            var m=d.getMinutes();
+            var s=d.getSeconds();
+            if(h<12){
+               var a= seccion="am";
+            }
+            else{
+                var a= seccion="pm";
+            }
+            if(h>12){
+                h=h-12;
+            }
+            else{
+                h=h;
+            }
+            h = h<10?"0"+h:h;
+            m = m<10?"0"+m:m;
+            s = s<10?"0"+s:s;
+            var Time=(h + " : " + m + " : " + s + " : "+a);
+            // document.getElementsByTagName("h1")[0].innerText=Time;
+            var c=document.getElementById('ct').innerHTML=Time;
+        }
+        function ccc(){
+            setInterval(clock,1000);
+        }
+    </script>
+</html>
